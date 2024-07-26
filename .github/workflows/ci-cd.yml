@@ -36,20 +36,21 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-          REPOSITORY: eureka-education-defination
+          REPOSITORY: eureka-server
+          VERSION: 1.0.0
         run: |
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG-$VERSION .
+          docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG-$VERSION
+          echo "image=$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG-$VERSION" >> $GITHUB_OUTPUT
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: education-app-revision9.json
-          container-name: eureka-server
+          task-definition: eureka-defination-revision1.json
+          container-name: eurekaserver
           image: ${{ steps.build-image.outputs.image }}
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
