@@ -1,13 +1,13 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:205885457277:task-definition/eureka-education-defination:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:205885457277:task-definition/eureka-defination:1",
   "containerDefinitions": [
     {
-      "name": "eureka",
-      "image": "205885457277.dkr.ecr.eu-north-1.amazonaws.com/education-app:latest",
+      "name": "eurekaserver",
+      "image": "205885457277.dkr.ecr.eu-north-1.amazonaws.com/eureka-server:latest",
       "cpu": 0,
       "portMappings": [
         {
-          "name": "eureka-8761-tcp",
+          "name": "eurekaserver-8761-tcp",
           "containerPort": 8761,
           "hostPort": 8761,
           "protocol": "tcp",
@@ -23,7 +23,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/eureka-education-defination",
+          "awslogs-group": "/ecs/eureka-defination",
           "awslogs-create-group": "true",
           "awslogs-region": "eu-north-1",
           "awslogs-stream-prefix": "ecs"
@@ -33,7 +33,7 @@
       "systemControls": []
     }
   ],
-  "family": "eureka-education-defination",
+  "family": "eureka-defination",
   "taskRoleArn": "arn:aws:iam::205885457277:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::205885457277:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
@@ -83,7 +83,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-07-26T20:37:56.961Z",
+  "registeredAt": "2024-07-26T21:39:12.875Z",
   "registeredBy": "arn:aws:iam::205885457277:user/Matteo",
   "tags": []
 }
