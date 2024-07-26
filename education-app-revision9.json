@@ -1,5 +1,5 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:205885457277:task-definition/education-app:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:205885457277:task-definition/eureka-education-defination:1",
   "containerDefinitions": [
     {
       "name": "eureka",
@@ -23,7 +23,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/education-app",
+          "awslogs-group": "/ecs/eureka-education-defination",
           "awslogs-create-group": "true",
           "awslogs-region": "eu-north-1",
           "awslogs-stream-prefix": "ecs"
@@ -33,7 +33,7 @@
       "systemControls": []
     }
   ],
-  "family": "education-app",
+  "family": "eureka-education-defination",
   "taskRoleArn": "arn:aws:iam::205885457277:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::205885457277:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
@@ -83,7 +83,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-07-26T16:50:51.319Z",
+  "registeredAt": "2024-07-26T20:37:56.961Z",
   "registeredBy": "arn:aws:iam::205885457277:user/Matteo",
   "tags": []
 }
