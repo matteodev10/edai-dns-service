@@ -56,6 +56,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: eureka-service
+          service: eureka-service-2
           cluster: DevCluster
           wait-for-service-stability: true
